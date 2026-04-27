@@ -1,0 +1,10 @@
+name: first git hub action
+on : 
+  push:
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first step
+        run: echo "Hello hEMANT"
+    
