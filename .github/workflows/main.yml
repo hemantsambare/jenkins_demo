@@ -8,5 +8,6 @@ jobs:
     steps:
       - name: first step
         run: echo "Hello hEMANT"
+      - name: 2nd step
         run: echo $DEV
     
