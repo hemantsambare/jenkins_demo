@@ -3,21 +3,20 @@ name: first git hub action
 on: 
   push:
     branches: ["main"]
-environment: Dev 
 
 jobs:
   builds:
     runs-on: ubuntu-latest
-    # 1. Tell the job to use the 'Dev' environment context
+    # 1. Access the Dev environment for this specific job
+    environment: Dev 
     
-    
+    # 2. Define the variable at the job level so ALL steps can see it
+    env:
+      DEV: ${{ vars.DEV }}
+
     steps:
       - name: first step
-        run: echo "Hello hEMANT"
+        run: echo "Hello hEMANT. The var is $DEV"
 
       - name: 2nd step
-        # 2. Map the environment variable to the shell
-        run: echo "The value is $DEV"
-        env:
-          DEV: ${{ vars.DEV }}
-    
+        run: echo "The value is still $DEV"
