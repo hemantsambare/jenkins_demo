@@ -1,14 +1,22 @@
 name: first git hub action
-on : 
+
+on: 
   push:
-  
+    branches: ["main"]
+
 jobs:
   builds:
     runs-on: ubuntu-latest
-    environment: Dev
+    # 1. Tell the job to use the 'Dev' environment context
+    environment: Dev 
+    
     steps:
       - name: first step
         run: echo "Hello hEMANT"
+
       - name: 2nd step
-        run: echo $DEV
+        # 2. Map the environment variable to the shell
+        run: echo "The value is $DEV"
+        env:
+          DEV: ${{ vars.DEV }}
     
