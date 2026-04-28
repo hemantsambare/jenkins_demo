@@ -1,10 +1,11 @@
 name: first git hub action
 on : 
   push:
-   env: Dev
+  
 jobs:
   builds:
     runs-on: ubuntu-latest
+    environment: Dev
     steps:
       - name: first step
         run: echo "Hello hEMANT"
