@@ -4,6 +4,6 @@ on:
 jobs:
   printID:
     run-on: ubuntu-latest
-      steps:
-        - name: Print access ID
-          run: echo "The ACCESS_ID is ${{ACCESS_ID}}"
+    steps:
+      - name: Print access ID
+        run: echo "The ACCESS_ID is ${{ACCESS_ID}}"
