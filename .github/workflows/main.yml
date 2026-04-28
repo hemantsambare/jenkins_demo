@@ -3,12 +3,13 @@ name: first git hub action
 on: 
   push:
     branches: ["main"]
+environment: Dev 
 
 jobs:
   builds:
     runs-on: ubuntu-latest
     # 1. Tell the job to use the 'Dev' environment context
-    environment: Dev 
+    
     
     steps:
       - name: first step
