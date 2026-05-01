@@ -1,6 +1,6 @@
 name: Access ID workflow
 on:
-  push
+  workflow_dispatch: 
 jobs:
   printID:
     runs-on: ubuntu-latest
