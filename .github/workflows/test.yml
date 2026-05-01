@@ -1,5 +1,4 @@
 name: workflow1
-
 on:
   workflow_dispatch:
     inputs:
@@ -24,7 +23,7 @@ on:
         default: 'latest'
 jobs:
   setup:
-    runs-on: ununtu-latest
+    runs-on: ubuntu-latest
     outputs:
       image_tag: ${{ steps.set_tag.outputs.tag}}
     steps:
