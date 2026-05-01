@@ -23,11 +23,14 @@ on:
         type: string
         default: 'latest'
 jobs:
-  test_inputs:
-    runs-on: ubuntu-latest
+  setup:
+    runs-on: ununtu-latest
+    outputs:
+      image_tag: ${{ steps.set_tag.outputs.tag}}
     steps:
-      - name: Check inputs
+      - name: set image Tag
+        id: set_tag
         run: |
-          echo "Env: ${{ inputs.environment }}"
-          echo "Test: ${{ inputs.run_tests }}"
-          echo "Tag: ${{ inputs.docker_tag }}"
+          TAG="${{ inputs.docker_tag }}"
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "Image Tag is : ${TAG}"
