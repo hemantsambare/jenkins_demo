@@ -1,22 +1,33 @@
 name: workflow1
+
 on:
   workflow_dispatch:
-    input:
+    inputs:
       environment:
         description: 'Deployment Environment'
-		    required: true
-	    	type: options
-		      - development
-		      - production
-		      - staging
-		    default: 'development'
-	    run_tests:
-	      description: 'Run test'
-		    required: true
-		    type: boolean
-		    default: true
-	    docker_tag:
-	      description: 'Docker Image Tag'
-		    required: true
-		    type: string
-		    default: 'latest'
+        required: true
+        type: choice
+        options:
+          - development
+          - production
+          - staging
+        default: 'development'
+      run_tests:
+        description: 'Run test'
+        required: true
+        type: boolean
+        default: true
+      docker_tag:
+        description: 'Docker Image Tag'
+        required: true
+        type: string
+        default: 'latest'
+jobs:
+  test_inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check inputs
+        run: |
+          echo "Env: ${{ inputs.environment }}"
+          echo "Test: ${{ inputs.run_tests }}"
+          echo "Tag: ${{ inputs.docker_tag }}"
