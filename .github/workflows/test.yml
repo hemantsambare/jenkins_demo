@@ -33,3 +33,4 @@ jobs:
           TAG="${{ inputs.docker_tag }}"
           echo "tag=${TAG}" >> $GITHUB_OUTPUT
           echo "Image Tag is : ${TAG}"
+          echo "The image tag is ${tag}"
